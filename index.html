@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bros Consultoria Premium | Sua Transformação de Elite</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' style='filter: drop-shadow(0 0 5px #00BFA5);'>🚀</text></svg>">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        
+        :root {
+           
+            --primary-color: #00BFA5; 
+            --secondary-color: #00897B;
+            --accent-color: #FFD700; 
+            
+            
+            --background-color: #F8F9FA; 
+            --background-alt: #FFFFFF; 
+            --card-background: #FFFFFF;
+            --text-color: #212529; 
+            --text-light: #6C757D;
+            --border-color: #E9ECEF;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-strong: rgba(0, 0, 0, 0.15);
+            
+            
+            --glass-bg: rgba(255, 255, 255, 0.3); 
+            --glass-border: rgba(255, 255, 255, 0.6); 
+            
+            
+            --error-color: #DC3545;
+            --success-color: #28A745;
+            
+            
+            --transition-speed: 0.5s; 
+            --bezier-curve: cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+        }
+
+       
+        body.dark-theme {
+            --primary-color: #64FFDA; 
+            --secondary-color: #00BFA5; 
+            --accent-color: #FFEB3B; 
+            
+            --background-color: #0A192F;
+            --background-alt: #102A43;
+            --card-background: #1C3354;
+            --text-color: #E0E7FF; 
+            --text-light: #A3B3CC;
+            --border-color: #2C425E;
+            --shadow-light: rgba(0, 0, 0, 0.4);
+            --shadow-strong: rgba(0, 0, 0, 0.7);
+            
+           
+            --glass-bg: rgba(28, 51, 84, 0.6); 
+            --glass-border: rgba(100, 255, 218, 0.4);
+        }
+
+      
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        section {
+            padding: 150px 0; 
+            transition: background-color var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-alt {
+            background-color: var(--background-alt);
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--text-color);
+            line-height: 1.2;
+        }
+
+       .section-title {
+    font-size: 4.5em; 
+    text-align: center;
+    font-weight: 900;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background-clip: text;              
+    -webkit-background-clip: text;    
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 5px 5px var(--shadow-light));
+}
+
+
+        .section-subtitle {
+            font-size: 1.5em;
+            text-align: center;
+            color: var(--text-light);
+            max-width: 900px;
+            margin: 0 auto 100px;
+            font-style: italic;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 700;
+            filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+        }
+
+       
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 20px 45px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--background-alt); 
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.15em;
+            transition: all 0.4s var(--bezier-curve);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 30px var(--shadow-strong);
+            gap: 12px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            transition: all 0.5s;
+            transform: skewX(-20deg);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-7px) scale(1.02);
+            box-shadow: 0 20px 40px var(--shadow-strong);
+        }
+        
+        .cta-button:hover::after {
+            left: 100%;
+        }
+        
+        .cta-button i {
+            transition: transform 0.3s;
+        }
+        
+        .cta-button:hover i {
+            transform: translateX(5px);
+        }
+
+      
+        .cta-button.loading {
+            background: var(--secondary-color);
+            pointer-events: none;
+            opacity: 0.8;
+            cursor: wait;
+        }
+        
+        .cta-button.loading i {
+            animation: spin 1s infinite linear;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--background-alt);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-strong);
+        }
+        
+       
+        .message {
+            padding: 18px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-align: left;
+            opacity: 0;
+            animation: fadeIn 0.4s forwards;
+            border-left: 6px solid;
+            transition: all 0.4s;
+            font-size: 1em;
+        }
+        
+        .error-message {
+            background-color: rgba(220, 53, 69, 0.15);
+            color: var(--error-color);
+            border-color: var(--error-color);
+        }
+        
+        .success-message {
+            background-color: rgba(40, 167, 69, 0.15);
+            color: var(--success-color);
+            border-color: var(--success-color);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        
+        #navbar {
+           
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--glass-bg); 
+            backdrop-filter: blur(8px); 
+            box-shadow: 0 4px 15px var(--shadow-light);
+            transition: all 0.4s ease-in-out;
+        }
+
+        #navbar.scrolled {
+            padding: 5px 0;
+            background-color: var(--card-background);
+            box-shadow: 0 8px 25px var(--shadow-strong);
+            backdrop-filter: blur(0);
+        }
+
+        #navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: padding 0.3s;
+        }
+
+        #navbar.scrolled .container {
+            padding: 10px 0;
+        }
+
+        .logo-img {
+            height: 50px;
+            transition: height 0.3s, filter var(--transition-speed);
+        }
+        
+       
+        .logo-img-base64 {
+            height: 50px;
+            width: auto;
+           
+            background-image: url("https://scontent.cdninstagram.com/v/t51.82787-15/565144083_17847182202580127_2853154828465422399_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=Mzc0MTYxNjgyODUyODM3OTg4Mg%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwMjR4MTAyNC5zZHIuQzMifQ%3D%3D&_nc_ohc=OkGlIhwqtmoQ7kNvwHYYT1Q&_nc_oc=AdnAvwh0R-ukq4lNFQbP6DzW4_TWSXmM1QE72fZCtJdkkWwCdmvOok0SHyjQsi9VTFK_4sB2sXyNDZ9EujKIQJcl&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=6_iNcXZej77FCiEGrQQquA&oh=00_AfdmS0WBvXSx2JThELnfe3L7fTS8VFKl0Jxd4RNXR3lh0A&oe=68F1E9E2");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: left center;
+            filter: drop-shadow(0 2px 4px var(--shadow-light));
+        }
+
+        
+        #navbar nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 700;
+            margin: 0 20px;
+            padding: 10px 0;
+            position: relative;
+            transition: color 0.4s;
+            text-transform: uppercase;
+        }
+
+      
+        
+        #navbar nav a:hover,
+        #navbar nav a.active-link {
+            color: var(--primary-color);
+        }
+
+        #navbar nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transform: translateX(-50%);
+            transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-radius: 2px;
+        }
+
+        #navbar nav a:hover::after,
+        #navbar nav a.active-link::after {
+            width: 100%;
+        }
+        
+      
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #nav-login-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            padding: 10px 25px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+        
+        #nav-login-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--background-alt);
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+        
+       
+        #theme-toggle {
+            background: var(--background-alt);
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.3em;
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            transition: all 0.4s;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 15px var(--shadow-light);
+        }
+        
+        body.dark-theme #theme-toggle {
+            background: var(--card-background);
+            color: var(--accent-color);
+        }
+        
+        #theme-toggle:hover {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+        
+        #theme-toggle i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+
+      
+        #theme-toggle .fa-sun { opacity: 1; }
+        body.dark-theme #theme-toggle .fa-sun { opacity: 0; transform: translate(-50%, -150%); }
+        
+        #theme-toggle .fa-moon { opacity: 0; transform: translate(-50%, 150%); color: var(--accent-color); }
+        body.dark-theme #theme-toggle .fa-moon { opacity: 1; transform: translate(-50%, -50%); }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.8em;
+            cursor: pointer;
+            padding: 5px;
+            transition: transform 0.3s;
+        }
+
+       
+        #access-overlay {
+          
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background-color);
+            z-index: 1010; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.6s ease-in-out;
+            text-align: center;
+          
+        }
+
+        #access-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .overlay-content {
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 80%;
+        }
+        
+        .overlay-content i {
+            font-size: 5em;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            animation: pulse 1.5s infinite alternate;
+        }
+        
+        .overlay-content h2 {
+            font-size: 3.5em;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+        .overlay-content p {
+            font-size: 1.3em;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            max-width: 700px;
+        }
+        
+        @keyframes pulse {
+            from { transform: scale(1); opacity: 0.8; }
+            to { transform: scale(1.05); opacity: 1; }
+        }
+
+       
+        #login-page {
+           
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            background-image: linear-gradient(45deg, rgba(0, 191, 165, 0.2), rgba(0, 137, 123, 0.2)), url('https://source.unsplash.com/1920x1080/?fitness,gym-weights');
+            background-size: cover;
+            background-position: center;
+            z-index: 2000; 
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(15px);
+            transition: opacity 0.4s ease-in-out;
+            opacity: 1; 
+            pointer-events: auto; 
+        }
+
+        .login-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 60px 40px; 
+            box-shadow: 0 15px 50px var(--shadow-strong), 0 0 50px var(--primary-color) inset; 
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            animation: fadeInScale 0.8s var(--bezier-curve); 
+            color: var(--text-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        
+        body.dark-theme .login-card {
+            box-shadow: 0 15px 50px var(--shadow-strong), 0 0 50px rgba(100, 255, 218, 0.2) inset;
+        }
+
+       
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            right: -50px;
+            bottom: -50px;
+            background: radial-gradient(circle at center, rgba(0, 191, 165, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        
+        .login-card h3 {
+            font-size: 3em;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+            font-weight: 900;
+        }
+        
+        .login-card p.subtitle {
+            margin-bottom: 40px;
+            color: var(--text-light);
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        .login-card form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .login-card input {
+            width: 100%;
+            padding: 20px 20px 20px 55px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            font-size: 1.1em;
+            background-color: var(--background-alt); 
+            color: var(--text-color);
+            transition: all 0.3s;
+            box-shadow: inset 0 2px 5px var(--shadow-light);
+        }
+        
+        .login-card input::placeholder {
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+
+        .login-card input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(0, 191, 165, 0.3);
+            background-color: var(--card-background);
+        }
+        
+        .input-group i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        
+        .login-card input:focus + i {
+            color: var(--accent-color);
+        }
+        
+        .login-card .cta-button {
+            width: 100%;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        
+        .login-card .switch-form-link {
+            display: block;
+            margin-top: 25px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .login-card .switch-form-link:hover {
+            color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+       
+        #home {
+            
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 80px;
+        }
+
+        .hero-text {
+            max-width: 55%;
+        }
+
+        .hero-text .welcome-message {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero-text h1 {
+            font-size: 5.5em; 
+            font-weight: 900;
+            margin-bottom: 35px;
+        }
+
+        .hero-text p {
+            font-size: 1.5em;
+            color: var(--text-light);
+            margin-bottom: 60px;
+        }
+
+        .hero-image-container {
+            position: relative;
+            max-width: 45%;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px var(--shadow-strong);
+            transform: rotate(-1deg);
+            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .hero-image-container:hover {
+            transform: rotate(0deg) scale(1.03);
+        }
+
+        .hero-image-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            filter: brightness(0.95);
+            transition: filter 0.5s;
+        }
+        
+        .performance-svg {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-size: 4em;
+            color: var(--primary-color);
+            opacity: 0.9;
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5));
+            animation: pulse-brighter 2s infinite alternate;
+        }
+
+        @keyframes pulse-brighter {
+            0% { transform: scale(1); filter: drop-shadow(0 0 5px var(--primary-color)); }
+            100% { transform: scale(1.1); filter: drop-shadow(0 0 15px var(--primary-color)); }
+        }
+
+        
+        .about-us-grid {
+            
+            display: flex;
+            align-items: center;
+            gap: 120px;
+        }
+
+        .about-us-text {
+            flex: 1.5;
+        }
+        
+        .about-us-text h3 {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+        }
+        
+        .about-us-text p {
+            font-size: 1.25em;
+            margin-bottom: 25px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .mentors-images {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .mentor-card {
+            text-align: center;
+            padding: 30px 15px;
+            background-color: var(--card-background);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px var(--shadow-light);
+            transition: transform 0.5s var(--bezier-curve), box-shadow 0.5s;
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+        
+        .mentor-card:hover {
+            transform: translateY(-15px) rotate(1deg);
+            box-shadow: 0 20px 50px var(--shadow-strong);
+        }
+
+        .mentor-card img {
+            width: 100%;
+            max-width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid var(--primary-color);
+            margin-bottom: 20px;
+            transition: border-color 0.4s;
+            box-shadow: 0 0 0 5px var(--background-alt);
+        }
+
+        .mentor-card p {
+            font-weight: 800;
+            font-size: 1.4em;
+            margin: 0;
+            color: var(--text-color);
+        }
+
+        .mentor-card span {
+            display: block;
+            color: var(--accent-color);
+            font-size: 1.1em;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        
+        .consultoria-grid {
+          
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px; 
+        }
+
+        .consultoria-card {
+            background-color: var(--card-background);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 12px 35px var(--shadow-light);
+            border-left: 6px solid var(--primary-color);
+            transition: all 0.5s var(--bezier-curve);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .consultoria-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 191, 165, 0.05);
+            transition: transform 0.5s;
+            transform: scaleX(0);
+            transform-origin: left;
+            z-index: 1;
+        }
+        
+        .consultoria-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px var(--shadow-strong);
+            border-left-color: var(--accent-color);
+        }
+        
+        .consultoria-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .consultoria-card * {
+            position: relative; 
+            z-index: 2;
+        }
+        
+        .consultoria-card i {
+            font-size: 3.5em;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            transition: transform 0.4s;
+        }
+
+        .consultoria-card:hover i {
+            transform: rotate(-5deg) scale(1.1);
+        }
+
+        .consultoria-card h4 {
+            font-size: 1.8em;
+            font-weight: 800;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .consultoria-card p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .consultoria-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .consultoria-card ul li {
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05em;
+        }
+
+        .consultoria-card ul li i {
+            font-size: 1.3em;
+            color: var(--accent-color);
+            margin-bottom: 0;
+        }
+
+       
+        #perfil-consultoria {
+           
+            padding-top: 0;
+        }
+        
+        .perfil-title {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--secondary-color);
+            font-weight: 900;
+        }
+
+        .perfil-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .perfil-tab {
+            padding: 15px 35px;
+            background: var(--background-alt);
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--text-light);
+            transition: all 0.4s;
+            font-size: 1.1em;
+            text-transform: uppercase;
+        }
+
+        .perfil-tab.active {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--background-alt);
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 191, 165, 0.4);
+        }
+        
+        .perfil-tab:hover:not(.active) {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .perfil-content {
+            background: var(--card-background);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 15px 50px var(--shadow-strong);
+            border-left: 10px solid var(--accent-color);
+            animation: fadeIn 0.6s forwards;
+            min-height: 400px;
+        }
+
+        .perfil-content h5 {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        .perfil-content ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding-top: 10px;
+        }
+
+        .perfil-content ul li {
+            font-size: 1.2em;
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            font-weight: 500;
+        }
+
+        .perfil-content ul li i {
+            color: var(--accent-color);
+            font-size: 1.5em;
+            padding-top: 5px;
+        }
+
+        
+        #contact {
+            background-color: var(--background-alt);
+        }
+        
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 50px;
+            background-color: var(--card-background);
+            border-radius: 25px;
+            box-shadow: 0 15px 50px var(--shadow-light);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            font-size: 1.1em;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: all 0.4s;
+            resize: vertical;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(0, 191, 165, 0.3);
+            background-color: var(--background-alt); 
+        }
+
+        .contact-form button[type="submit"] {
+            margin-top: 20px;
+        }
+
+      
+        footer {
+           
+            background-color: var(--background-alt);
+            border-top: 2px solid var(--border-color);
+            padding: 60px 0;
+            font-size: 1em;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            height: 45px;
+           
+            transition: filter var(--transition-speed);
+        }
+
+       
+        .footer-logo-base64 {
+            height: 125px;
+            width: 175px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center left;
+            background-image: url("https://scontent.cdninstagram.com/v/t51.82787-15/565144083_17847182202580127_2853154828465422399_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=Mzc0MTYxNjgyODUyODM3OTg4Mg%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwMjR4MTAyNC5zZHIuQzMifQ%3D%3D&_nc_ohc=OkGlIhwqtmoQ7kNvwHYYT1Q&_nc_oc=AdnAvwh0R-ukq4lNFQbP6DzW4_TWSXmM1QE72fZCtJdkkWwCdmvOok0SHyjQsi9VTFK_4sB2sXyNDZ9EujKIQJcl&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=08hyuLjZ9uFs6h3CckE_KA&oh=00_Afd3UwmB-8gnepJaNZl5pTjiSnlnnygk3CU6VA-nET_ICQ&oe=68F1E9E2");
+        }
+        
+
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 55px;
+            transition: color 0.4s, transform 0.4s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: scale(1.2) rotate(360deg);
+        }
+        
+      
+       footer p {
+    background: linear-gradient(90deg, var(--text-light), var(--primary-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+
+       
+        .animated {
+            opacity: 0;
+            transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.4, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.4, 1);
+        }
+        
+        .animated.slide-in-up {
+            transform: translateY(60px); 
+        }
+        
+        .animated.slide-in-left {
+            transform: translateX(-80px);
+        }
+        
+        .animated.slide-in-right {
+            transform: translateX(80px);
+        }
+        
+        .animated.visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+        
+        
+        #home .hero-text .welcome-message.visible { transition-delay: 0.3s; }
+        #home .hero-text h1.visible { transition-delay: 0.5s; }
+        #home .hero-text p.visible { transition-delay: 0.7s; }
+        #home .hero-text .cta-button.visible { transition-delay: 0.9s; }
+        #home .hero-image-container.visible { transition-delay: 1.1s; }
+        
+        
+        .consultoria-grid .animated:nth-child(1).visible { transition-delay: 0.2s; }
+        .consultoria-grid .animated:nth-child(2).visible { transition-delay: 0.4s; }
+        .consultoria-grid .animated:nth-child(3).visible { transition-delay: 0.6s; }
+        .consultoria-grid .animated:nth-child(4).visible { transition-delay: 0.8s; }
+
+        
+        @media (max-width: 1200px) {
+          
+            .container { padding: 0 30px; }
+            .hero-text h1 { font-size: 4.5em; }
+            .hero-text p { font-size: 1.3em; }
+            .about-us-grid { gap: 60px; }
+        }
+
+        @media (max-width: 992px) {
+           
+            section { padding: 100px 0; }
+            .section-title { font-size: 3.5em; }
+            .section-subtitle { margin-bottom: 80px; }
+            
+           
+            #main-nav.active {
+                background-color: var(--glass-bg);
+                backdrop-filter: blur(10px);
+                box-shadow: 0 15px 30px var(--shadow-strong);
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+            }
+            #nav-login-btn { display: none !important; }
+            .menu-toggle { display: block; }
+            
+          
+            .hero-content { flex-direction: column; text-align: center; gap: 50px; }
+            .hero-text { max-width: 100%; }
+            .hero-text h1 { font-size: 3.8em; }
+            .hero-text p { margin-bottom: 40px; }
+            .hero-image-container { max-width: 90%; }
+            
+           
+            .about-us-grid { flex-direction: column; gap: 70px; }
+            .about-us-text { text-align: center; }
+            .about-us-text h3 { font-size: 2em; }
+            .mentors-images { grid-template-columns: 1fr; gap: 30px; }
+            .mentor-card { max-width: 300px; margin: 0 auto; }
+            
+           
+            .consultoria-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+            .perfil-tabs { flex-wrap: wrap; }
+            .perfil-content ul { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 600px) {
+           
+            .section-title { font-size: 2.8em; letter-spacing: 2px; }
+            .hero-text h1 { font-size: 3em; }
+            .container { padding: 0 20px; }
+            
+          
+            .login-card { padding: 40px 20px; }
+            .overlay-content h2 { font-size: 2.5em; }
+            
+            .perfil-tab { padding: 10px 20px; font-size: 1em; }
+        }
+    </style>
+</head>
+<body class="light-theme">
+
+    <div id="login-page">
+        <div class="login-card">
+            <h3 id="form-title">Acesse a Bros Consultoria</h3>
+            <p class="subtitle" id="form-subtitle">Sua jornada de alta performance começa aqui.</p>
+            
+            <div id="auth-message-box"></div>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <input type="email" id="login-email" placeholder="Seu E-mail Profissional" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="login-password" placeholder="Sua Senha Secreta" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button type="submit" class="cta-button">Entrar <i class="fas fa-sign-in-alt"></i></button>
+                <a href="#" class="switch-form-link" onclick="switchForm('register'); return false;">Ainda não é Bros? Crie sua conta!</a>
+            </form>
+
+            <form id="register-form" style="display: none;">
+                <div class="input-group">
+                    <input type="text" id="register-name" placeholder="Seu Nome Completo" required>
+                    <i class="fas fa-user-tag"></i>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="register-email" placeholder="Seu Melhor E-mail" required>
+                    <i class="fas fa-at"></i>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="register-password" placeholder="Crie uma Senha (mín. 6 caracteres)" required minlength="6">
+                    <i class="fas fa-key"></i>
+                </div>
+                <button type="submit" class="cta-button">Criar Conta <i class="fas fa-user-plus"></i></button>
+                <a href="#" class="switch-form-link" onclick="switchForm('login'); return false;">Já tenho conta. Fazer Login</a>
+            </form>
+        </div>
+    </div>
+
+    <div id="access-overlay">
+        <div class="overlay-content animated slide-in-up">
+            <i class="fas fa-user-secret"></i>
+            <h2 style="color: var(--text-color);">Área de Membros Premium</h2>
+            <p>O conteúdo de elite da Bros Consultoria é exclusivo para membros. Faça login ou cadastre-se para acessar seu plano de transformação definitivo.</p>
+            <a href="#" class="cta-button" onclick="openLoginPage('login'); return false;">
+                <i class="fas fa-sign-in-alt"></i> Entrar na Área de Elite
+            </a>
+        </div>
+    </div>
+    
+    <header id="navbar">
+        <div class="container">
+            <a href="#home">
+                <div class="logo-img-base64 logo-img" alt="Logo Bros Consultoria"></div>
+            </a>
+            
+            <nav id="main-nav">
+                <a href="#home">Home</a>
+                <a href="#about-us">Quem Somos</a>
+                <a href="#consultoria-content">Consultoria</a>
+                <a href="#contact">Contato</a>
+            </nav>
+            
+            <div class="nav-controls">
+                <a href="#" id="nav-logout-btn" class="btn-outline cta-button" style="display: none;" onclick="logout(); return false;">
+                    <i class="fas fa-sign-out-alt"></i> Sair
+                </a>
+                
+                <button id="theme-toggle" aria-label="Alternar tema">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu de navegação">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <main id="main-content" style="opacity: 0; pointer-events: none;">
+        
+        <section id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <p class="welcome-message animated slide-in-up" id="welcome-msg">Seja Bem-vindo, Atleta!</p>
+                        <h1 class="animated slide-in-up">Consultoria que Transforma sua <span class="highlight">Saúde e Autoestima.</span></h1>
+                        <p class="animated slide-in-up">Alcance sua melhor versão com o método Bros: disciplina científica, treinos adaptados e nutrição inteligente para resultados reais e duradouros.</p>
+                        <a href="#consultoria-content" class="cta-button animated slide-in-up">Comece Agora <i class="fas fa-angle-double-right"></i></a>
+                    </div>
+                    <div class="hero-image-container animated slide-in-right">
+                        <i class="fas fa-chart-line performance-svg"></i>
+                        <img src="https://scontent.cdninstagram.com/v/t51.82787-15/565144083_17847182202580127_2853154828465422399_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=Mzc0MTYxNjgyODUyODM3OTg4Mg%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwMjR4MTAyNC5zZHIuQzMifQ%3D%3D&_nc_ohc=OkGlIhwqtmoQ7kNvwHYYT1Q&_nc_oc=AdnAvwh0R-ukq4lNFQbP6DzW4_TWSXmM1QE72fZCtJdkkWwCdmvOok0SHyjQsi9VTFK_4sB2sXyNDZ9EujKIQJcl&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=6_iNcXZej77FCiEGrQQquA&oh=00_AfdmS0WBvXSx2JThELnfe3L7fTS8VFKl0Jxd4RNXR3lh0A&oe=68F1E9E2" alt="Atleta de alta performance e alimentação saudável">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-us" class="bg-alt">
+            <div class="container">
+                <h2 class="section-title animated slide-in-up">Quem Somos: Força, Visão e Propósito.</h2>
+                <p class="section-subtitle animated slide-in-up">A Bros Consultoria nasceu de uma jornada de evolução e excelência.<br>
+Unimos ciência, estratégia e resultados para elevar sua saúde e performance ao mais alto nível.<br>
+Conheça os fundadores por trás desse propósito.</p>
+                
+                <div class="about-us-grid">
+                    <div class="about-us-text animated slide-in-left">
+                        <h3><i class="fas fa-users-cog"></i>Nossa Trajetória e Missão</h3>
+                        <p>Somos Brian Esteves da Costa Torres e Arthur Costa da Silva, alunos do 1E, do Primeiro Ano do Ensino Médio Integrado ao Técnico em Desenvolvimento de Sistemas.<br></p>
+
+<p>Como praticantes dedicados de musculação e entusiastas da performance humana, desenvolvemos um profundo interesse pelos princípios que envolvem <span class="highlight">treinos e nutrição</span>.<br>
+Essa motivação constante nos levou a criar a <span class="highlight">Bros Consultoria</span> — um projeto construído sobre bases sólidas de <span class="highlight">ciência, dados e segurança</span>.</p>
+
+<p>Por meio de estratégias personalizadas e orientadas por evidências, buscamos aprimorar sua <span class="highlight">saúde, físico e autoestima</span> de forma inteligente, eficiente e completa.</p>
+
+
+<p>Por meio de estratégias personalizadas e orientadas por evidências, buscamos aprimorar sua <span class="highlight">saúde, físico e autoestima</span> de forma inteligente, eficiente e completa.</p>
+
+                        <a href="#contact" class="cta-button btn-outline" style="margin-top: 20px;">Fale com os Bros! <i class="fas fa-comment-dots"></i></a>
+                    </div>
+                    
+                    <div class="mentors-images animated slide-in-right">
+                        <div class="mentor-card">
+                            <img src="https://scontent.cdninstagram.com/v/t51.82787-15/563686472_17847172110580127_4027607754631047124_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mzc0MTU3OTQyNjYxOTMxODAxMA%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjkzM3gxMjQ0LnNkci5DMyJ9&_nc_ohc=C95XbdKBd5oQ7kNvwHV67H0&_nc_oc=Adm9wJzbEbMGRN4G1DgysSBGQM5LEavyuqR7xOiP0G-0kC3n56H5B-7JDVQuBTdlYrfsE5VENB-jg1uRQKGslPpg&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=z6fcOdGDIroFQ7zkUKgSug&oh=00_AfeHu6oLA7bxbc2TlwJCq2RHSNeIq-nWax_7jnpXJU5VTw&oe=68F11E57" alt="Brian Esteves da Costa Torres">
+                            <p>Brian Esteves</p>
+                            <span>Especialista em Análise e Desempenho Físico</span>
+                        </div>
+                        <div class="mentor-card">
+                            <img src="https://scontent.cdninstagram.com/v/t51.82787-15/565291359_17847174558580127_8197214620195373145_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=Mzc0MTU4OTY3OTM4NTc0NzMxMw%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNDF4MTUxNC5zZHIuQzMifQ%3D%3D&_nc_ohc=4-WBAhg7t2kQ7kNvwG76BFN&_nc_oc=AdkUJszbHZ5aoVjR-ObsVguvNOIt7VXm2nLUkXoGYteUQbkNC0qz_x9ADDhCv_z0LglroMgHf7K42JYycePuJzvm&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=JW16gCLsGm_mqCpjBJi4dg&oh=00_Afc43LPlPml-Dm9-m-L8DMvYb3somp46PZzmQR0rYP4N2A&oe=68F12F69" alt="Arthur Costa da Silva">
+                            <p>Arthur Costa</p>
+                            <span>Especialista em Performance e Inovação</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="consultoria-content">
+            <div class="container">
+                <h2 class="section-title animated slide-in-up">Seu Próximo Nível é o Nosso Foco.</h2>
+                <p class="section-subtitle animated slide-in-up">Tudo o que você precisa para romper seus limites, conquistar seus objetivos estéticos e de saúde, e manter resultados sólidos e duradouros.</p>
+                
+                <div class="consultoria-grid">
+                    
+                    <div class="consultoria-card animated slide-in-up">
+                        <i class="fas fa-dumbbell"></i>
+                        <h4>Consultoria de Treino Personalizado</h4>
+                        <p>Planilhas dinâmicas e vídeos de execução para cada exercício. Treine de forma científica, segura e progressiva.</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Periodização Científica</li>
+                            <li><i class="fas fa-check-circle"></i> Adaptação Imediata (Casa ou Academia)</li>
+                            <li><i class="fas fa-check-circle"></i> Foco na Técnica e Prevenção de Lesões</li>
+                        </ul>
+                    </div>
+
+                    <div class="consultoria-card animated slide-in-up">
+                        <i class="fas fa-utensils"></i>
+                        <h4>Dieta Inteligente Baseada em Dados</h4>
+                        <p>Chega de dietas restritivas. Cardápios flexíveis, adaptados aos seus gostos e rotina para resultados sustentáveis.</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Foco em Sustentabilidade e Prazer</li>
+                            <li><i class="fas fa-check-circle"></i> Cardápios para Ganho de Massa ou Definição</li>
+                            <li><i class="fas fa-check-circle"></i> Suporte para Suplementação (Opcional)</li>
+                        </ul>
+                    </div>
+
+                    <div class="consultoria-card animated slide-in-up">
+                        <i class="fas fa-chart-area"></i>
+                        <h4>Ajustes Semanais + Suporte 24/7</h4>
+                        <p>Monitoramento contínuo para garantir que seu plano evolua junto com seus resultados e necessidades.</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Feedback e Alterações em 24h</li>
+                            <li><i class="fas fa-check-circle"></i> Canal Direto com os Bros (WhatsApp)</li>
+                            <li><i class="fas fa-check-circle"></i> Análise de Medidas e Fotos (Privacidade Total)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="consultoria-card animated slide-in-up">
+                        <i class="fas fa-brain"></i>
+                        <h4>Mentoria de Hábitos e Rotina</h4>
+                        <p>Orientação para criar uma rotina disciplinada que otimiza sono, hidratação e gestão de estresse.</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Ferramentas de Produtividade Pessoal</li>
+                            <li><i class="fas fa-check-circle"></i> Otimização da Qualidade do Sono</li>
+                            <li><i class="fas fa-check-circle"></i> Gestão de Ansiedade e Foco</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="perfil-consultoria" class="bg-alt">
+             <div class="container">
+                 <h3 class="perfil-title animated slide-in-up">Qual é o seu Nível de Performance Hoje?</h3>
+                 
+                 <div class="perfil-tabs animated slide-in-up">
+                     <div class="perfil-tab active" data-perfil="iniciante">INICIANTE</div>
+                     <div class="perfil-tab" data-perfil="intermediario">INTERMEDIÁRIO</div>
+                     <div class="perfil-tab" data-perfil="avancado">AVANÇADO</div>
+                 </div>
+                 
+                 <div id="perfil-info" class="perfil-content animated slide-in-up">
+                    </div>
+             </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title animated slide-in-up">Pronto para a sua Transformação?</h2>
+                <p class="section-subtitle animated slide-in-up" style="margin-bottom: 30px;">Use o formulário abaixo para entrar em contato. Responderemos o mais rápido possível!</p>
+                
+                <div id="contact-feedback" class="message" style="display: none;"></div>
+
+                <form 
+                    id="contact-form" 
+                    class="contact-form animated slide-in-up" 
+                    action="https://formsubmit.co/brosconsultoria01@gmail.com" 
+                    method="POST"
+                    novalidate 
+                >
+                    <input type="text" name="Nome" placeholder="Seu Nome Completo" required>
+                    <input type="email" name="Email" placeholder="Seu Melhor E-mail" required>
+                    <textarea name="Mensagem" rows="6" placeholder="Sua Mensagem e Objetivo (Ex: Perder 5kg, Ganhar Força, Otimizar Performance, etc.)" required></textarea>
+                    
+                    <input type="hidden" name="_subject" value="[BROSConsultoria] Novo Pedido de Contato Premium!">
+                    <input type="hidden" name="_next" value=""> 
+                    <input type="hidden" name="_captcha" value="false"> 
+
+                    <button type="submit" class="cta-button" id="contact-submit-btn">
+                        Enviar Mensagem <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Bros Consultoria. Todos os direitos reservados. | Desenvolvido com Foco e Disciplina.</p>
+            
+            <a href="#home">
+                <div class="footer-logo-base64 footer-logo" alt="Logo Bros Consultoria"></div>
+            </a>
+            
+            <div class="social-links">
+                <a href="https://instagram.com/bros_consultoria" target="_blank" aria-label="Instagram da Bros Consultoria">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+        const DOM = {
+           
+            body: document.body,
+            mainContent: document.getElementById('main-content'),
+            accessOverlay: document.getElementById('access-overlay'),
+            
+          
+            navbar: document.getElementById('navbar'),
+            menuToggle: document.getElementById('menu-toggle'),
+            mainNav: document.getElementById('main-nav'),
+            navLinks: document.querySelectorAll('#main-nav a'),
+            themeToggle: document.getElementById('theme-toggle'),
+            navLogoutBtn: document.getElementById('nav-logout-btn'),
+            
+            
+            loginPage: document.getElementById('login-page'),
+            loginForm: document.getElementById('login-form'),
+            registerForm: document.getElementById('register-form'),
+            formTitle: document.getElementById('form-title'),
+            formSubtitle: document.getElementById('form-subtitle'),
+            authMessageBox: document.getElementById('auth-message-box'),
+            
+            
+            welcomeMsg: document.getElementById('welcome-msg'),
+            
+            
+            contactForm: document.getElementById('contact-form'),
+            contactFeedback: document.getElementById('contact-feedback'),
+            contactSubmitBtn: document.getElementById('contact-submit-btn'),
+
+           
+            perfilTabs: document.querySelectorAll('.perfil-tab'),
+            perfilInfo: document.getElementById('perfil-info')
+        };
+        
+       
+        let users = JSON.parse(localStorage.getItem('bros_users')) || [];
+        let isLoggedIn = localStorage.getItem('bros_isLoggedIn') === 'true';
+        let lastSubmissionTime = 0; 
+        const ANTI_SPAM_DELAY = 10; 
+
+       
+        const PERFIS_DATA = {
+            iniciante: {
+                title: "Iniciante: Foco na Técnica e Consistência (Plano Base)",
+                list: [
+                    "Treino: Foco em Full Body ou AB 3x semana para adaptação muscular e articular.",
+                    "Dieta: Aprender a contar macros, foco em proteína e hidratação (base da nutrição).",
+                    "Rotina: Implementar rotina de sono (mín. 7h) e 3 treinos fixos e inegociáveis.",
+                    "Suporte: Check-in semanal detalhado e correção de técnica via vídeo com feedback 24h.",
+                    "Mindset: Construção de disciplina, rastreamento de progresso e prevenção de lesões."
+                ]
+            },
+            intermediario: {
+                title: "Intermediário: Periodização e Nutrição Estratégica (Plano Evolução)",
+                list: [
+                    "Treino: Divisão de treino avançada (Ex: PPL ou Upper/Lower), introdução de RPE/RIR e técnicas de intensidade.",
+                    "Dieta: Ajuste fino de calorias para Bulking/Cutting, estratégias de Refeed e Carb-Cycling.",
+                    "Rotina: Otimização do tempo de treino, gerenciamento de estresse e mobilidade ativa.",
+                    "Suporte: Análise de estagnação (Platô), ajustes de volume/intensidade e introdução de métodos avançados.",
+                    "Mindset: Melhorar a conexão Mente-Músculo, foco total na execução e planejamento de longo prazo."
+                ]
+            },
+            avancado: {
+                title: "Avançado: Pico de Performance e Refinamento Estético (Plano Elite)",
+                list: [
+                    "Treino: Micro e Macro Ciclos complexos, deloads programados e variações para estímulos máximos.",
+                    "Dieta: Manipulação de micronutrientes, suplementação otimizada, protocolo de Peak Week (se necessário).",
+                    "Rotina: Otimização total de recuperação, protocolos de sono e biohacking para excelência.",
+                    "Suporte: Check-in ultradetailhado, ajustes de 1% para quebrar qualquer limite e preparo para eventos/fotos.",
+                    "Mindset: Manutenção do foco e excelência em performance, resiliência mental e gestão de fadiga."
+                ]
+            }
+        };
+
+
+       
+        const displayMessage = (container, type, message, duration = 4000) => {
+            container.style.display = 'block';
+            container.className = `message ${type}-message`;
+            container.innerHTML = message;
+            container.style.opacity = 1; 
+            
+          
+            setTimeout(() => {
+                container.style.opacity = 0;
+            }, duration);
+            setTimeout(() => {
+                 container.style.display = 'none';
+                 container.innerHTML = '';
+            }, duration + 500); 
+        };
+        
+       
+        const initThemeToggle = () => {
+            const applyTheme = (theme) => {
+                DOM.body.classList.remove('light-theme', 'dark-theme');
+                DOM.body.classList.add(theme);
+                localStorage.setItem('bros_theme', theme);
+            };
+
+            const savedTheme = localStorage.getItem('bros_theme');
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                applyTheme('dark-theme');
+            } else {
+                applyTheme('light-theme');
+            }
+
+            DOM.themeToggle.addEventListener('click', () => {
+                const currentTheme = DOM.body.classList.contains('dark-theme') ? 'dark-theme' : 'light-theme';
+                const newTheme = currentTheme === 'light-theme' ? 'dark-theme' : 'light-theme';
+                applyTheme(newTheme);
+            });
+        };
+
+        
+        const initNavbar = () => {
+          
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 80) {
+                    DOM.navbar.classList.add('scrolled');
+                } else {
+                    DOM.navbar.classList.remove('scrolled');
+                }
+            });
+
+            
+            DOM.menuToggle.addEventListener('click', () => {
+                DOM.mainNav.classList.toggle('active');
+                const icon = DOM.menuToggle.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+            
+           
+            DOM.navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (DOM.mainNav.classList.contains('active')) {
+                        DOM.mainNav.classList.remove('active');
+                        const icon = DOM.menuToggle.querySelector('i');
+                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times');
+                    }
+                });
+            });
+            
+            
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        DOM.navLinks.forEach(link => {
+                            link.classList.remove('active-link');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active-link');
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.4, rootMargin: '-50px 0px -50px 0px' }); 
+
+            sections.forEach(section => observer.observe(section));
+        };
+        
+        
+        const initAnimations = () => {
+            const elementsToAnimate = document.querySelectorAll('.animated');
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible'); 
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1, 
+                rootMargin: '0px 0px -80px 0px' 
+            });
+
+            elementsToAnimate.forEach(element => {
+                observer.observe(element);
+            });
+        };
+        
+       
+        const renderPerfil = (perfilKey) => {
+            const data = PERFIS_DATA[perfilKey];
+            let html = `<h5>${data.title}</h5><ul>`;
+            data.list.forEach(item => {
+                html += `<li><i class="fas fa-arrow-alt-circle-right"></i><span>${item}</span></li>`;
+            });
+            html += `</ul>`;
+            
+          
+            DOM.perfilInfo.style.opacity = 0;
+            DOM.perfilInfo.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+                DOM.perfilInfo.innerHTML = html;
+                DOM.perfilInfo.style.opacity = 1;
+                DOM.perfilInfo.style.transform = 'translateY(0)';
+            }, 300);
+        };
+        
+        const initPerfis = () => {
+            renderPerfil('iniciante'); 
+            
+            DOM.perfilTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    DOM.perfilTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    renderPerfil(this.getAttribute('data-perfil'));
+                });
+            });
+        };
+
+
+      
+        const switchForm = (type) => {
+          
+            DOM.authMessageBox.style.display = 'none';
+            DOM.authMessageBox.innerHTML = '';
+            
+           
+            DOM.loginForm.style.opacity = 0;
+            DOM.registerForm.style.opacity = 0;
+            
+            setTimeout(() => {
+                if (type === 'login') {
+                    DOM.loginForm.style.display = 'flex';
+                    DOM.registerForm.style.display = 'none';
+                    DOM.formTitle.textContent = 'Acesse a Bros Consultoria';
+                    DOM.formSubtitle.textContent = 'Sua jornada de alta performance começa aqui.';
+                } else {
+                    DOM.loginForm.style.display = 'none';
+                    DOM.registerForm.style.display = 'flex';
+                    DOM.formTitle.textContent = 'Crie sua Conta Premium';
+                    DOM.formSubtitle.textContent = 'Entre para a comunidade Bros e comece sua transformação.';
+                }
+                
+               
+                setTimeout(() => {
+                    if (type === 'login') DOM.loginForm.style.opacity = 1;
+                    else DOM.registerForm.style.opacity = 1;
+                }, 50);
+            }, 300);
+        };
+
+        const openLoginPage = () => {
+            
+            if (isLoggedIn) return;
+         
+            DOM.loginPage.style.display = 'flex'; 
+            DOM.loginPage.style.opacity = 1;
+            DOM.body.style.overflow = 'hidden'; 
+            switchForm('login');
+        };
+
+        const closeLoginPage = () => {
+         
+            DOM.loginPage.style.opacity = 0;
+            setTimeout(() => {
+                DOM.loginPage.style.display = 'none';
+                DOM.body.style.overflow = 'auto';
+                DOM.authMessageBox.innerHTML = '';
+                DOM.loginForm.reset();
+                DOM.registerForm.reset();
+            }, 400); 
+        };
+        
+        const logout = () => {
+           
+            localStorage.setItem('bros_isLoggedIn', 'false');
+            localStorage.removeItem('bros_userName');
+            isLoggedIn = false;
+            updateSiteState();
+            
+            
+            window.scrollTo(0, 0); 
+            openLoginPage();
+        }
+
+        const updateSiteState = (userName = localStorage.getItem('bros_userName')) => {
+           
+            if (isLoggedIn) {
+             
+                DOM.accessOverlay.classList.add('hidden');
+                DOM.mainContent.style.opacity = 1;
+                DOM.mainContent.style.pointerEvents = 'auto';
+
+              
+                DOM.navLogoutBtn.style.display = 'flex';
+                
+                
+                const firstName = userName ? userName.split(' ')[0] : 'Atleta';
+                DOM.welcomeMsg.textContent = `Bem-vindo de volta, ${firstName}!`;
+                
+               
+                closeLoginPage();
+                
+                
+                initAnimations();
+                initPerfis(); 
+
+            } else {
+                
+                DOM.accessOverlay.classList.remove('hidden');
+                DOM.mainContent.style.opacity = 0;
+                DOM.mainContent.style.pointerEvents = 'none';
+                
+                
+                DOM.navLogoutBtn.style.display = 'none';
+                
+                
+                openLoginPage();
+            }
+        };
+
+       
+        DOM.registerForm.addEventListener('submit', (e) => {
+            
+            e.preventDefault();
+            const name = document.getElementById('register-name').value.trim();
+            const email = document.getElementById('register-email').value.trim();
+            const password = document.getElementById('register-password').value;
+
+            if (password.length < 6) {
+                return displayMessage(DOM.authMessageBox, 'error', 'A senha deve ter no mínimo 6 caracteres.');
+            }
+
+            if (users.some(user => user.email === email)) {
+                return displayMessage(DOM.authMessageBox, 'error', 'Este e-mail já está cadastrado.');
+            }
+
+           
+            users.push({ name, email, password });
+            localStorage.setItem('bros_users', JSON.stringify(users));
+            displayMessage(DOM.authMessageBox, 'success', 'Conta Premium criada! Redirecionando para o login...');
+            
+           
+            setTimeout(() => { switchForm('login'); }, 2000);
+        });
+
+       
+        DOM.loginForm.addEventListener('submit', (e) => {
+           
+            e.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+
+            const user = users.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                
+                localStorage.setItem('bros_isLoggedIn', 'true');
+                localStorage.setItem('bros_userName', user.name);
+                isLoggedIn = true;
+                displayMessage(DOM.authMessageBox, 'success', `Acesso liberado! Bem-vindo, ${user.name.split(' ')[0]}!`);
+                
+               
+                setTimeout(() => { 
+                    updateSiteState(user.name); 
+                }, 1500);
+                
+            } else {
+              
+                displayMessage(DOM.authMessageBox, 'error', 'Credenciais inválidas. Verifique e-mail/senha.');
+            }
+        });
+
+       
+        DOM.contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+           
+            const currentTime = Date.now();
+            if (currentTime - lastSubmissionTime < (ANTI_SPAM_DELAY * 1000)) {
+                const remainingTime = Math.ceil((ANTI_SPAM_DELAY * 1000 - (currentTime - lastSubmissionTime)) / 1000);
+                displayMessage(DOM.contactFeedback, 'error', `Por favor, espere ${remainingTime}s antes de enviar outra mensagem. Proteção Anti-Spam ativada.`);
+                return;
+            }
+
+         
+            if (!this.checkValidity()) {
+                displayMessage(DOM.contactFeedback, 'error', 'Por favor, preencha todos os campos obrigatórios corretamente.');
+              
+                this.reportValidity(); 
+                return;
+            }
+
+           
+            const originalButtonText = DOM.contactSubmitBtn.innerHTML;
+            DOM.contactSubmitBtn.innerHTML = '<i class="fas fa-spinner"></i> Enviando...';
+            DOM.contactSubmitBtn.classList.add('loading');
+            
+          
+            const formData = new FormData(this);
+           
+            formData.append('Data de Envio', new Date().toLocaleString('pt-BR'));
+            
+           
+            const successRedirectUrl = window.location.href.split('#')[0] + '#contact';
+            formData.set('_next', successRedirectUrl);
+
+            try {
+              
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                   
+                    const userName = formData.get('Nome') || 'Atleta';
+                    const userFirstName = userName.split(' ')[0];
+                    displayMessage(DOM.contactFeedback, 'success', `<i class="fas fa-check-circle"></i> Sucesso, ${userFirstName}! Sua mensagem foi enviada. Os Bros retornarão em breve.`);
+                    DOM.contactForm.reset();
+                    lastSubmissionTime = Date.now();
+                } else {
+                   
+                    displayMessage(DOM.contactFeedback, 'error', '<i class="fas fa-times-circle"></i> Erro ao enviar. Tente novamente ou use o Instagram.');
+                }
+
+            } catch (error) {
+               
+                console.error('Erro de conexão no formulário:', error);
+                displayMessage(DOM.contactFeedback, 'error', '<i class="fas fa-exclamation-triangle"></i> Erro de conexão. Verifique sua rede e tente novamente.');
+            } finally {
+               
+                DOM.contactSubmitBtn.innerHTML = originalButtonText;
+                DOM.contactSubmitBtn.classList.remove('loading');
+            }
+        });
+
+
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            initThemeToggle();
+            initNavbar();
+            updateSiteState(); 
+        });
+        
+      
+        window.addEventListener('hashchange', updateSiteState);
+        
+    </script>
+</body>
+</html>
